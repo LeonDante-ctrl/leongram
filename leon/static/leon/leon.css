@@ -1,0 +1,65 @@
+body {
+    background-color: bisque
+}
+
+header {
+    background-color: azure;
+    border-bottom: 1px solid azure;
+}
+
+.navigation {
+    display: inline-block;
+    background-image: url("https://images.unsplash.com/photo-1620938289349-86988c5a81a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+    background-color: cadetblue;
+    width: 100%;
+    padding: 20px 20px;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.navigation a {
+    color: white;
+}
+
+.instalogo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 30%
+}
+
+.instalogo a {
+    font-size: 25px;
+    padding-left: 2px;
+}
+
+.contact_icons {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.contact_icons a {
+    padding-left: 30px;
+    font-size: 25px;
+    font-weight: light;
+}
+
+.search_bar {
+    display: flex;
+    justify-content: center;
+    color: azure;
+    cursor: text;
+    text-align: center;
+}
+
+.search_bar a {
+    font-size: 25px;
+    padding-left: 15px;
+}
+
+.content-container {
+    background-color: bisque;
+    padding-top: 50px;
+}
