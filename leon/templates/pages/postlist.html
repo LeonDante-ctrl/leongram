@@ -1,5 +1,32 @@
 {% extends "pages/base.html" %} {% block content %} {% for post in posts %}
-<p>{{post.author}}</p>
-<p>{{post.caption}}</p>
+<div class="card">
+    <div class="card_header">
+        <div class="profile_image">
+
+        </div>
+        <div class="post_info">
+            <div class="post_name"> {{post.author}}</div>
+            <div class="post_location">Panama</div>
+        </div>
+
+        <div class="post_options"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+    </div>
+
+    <div class="post_image">
+        <img src="https://images.unsplash.com/photo-1620938289349-86988c5a81a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+    </div>
+    <div class="engage">
+        <a href=""><i class="fa fa-heartbeat" aria-hidden="true"></i></a>
+        <a href=""><i class="fa fa-commenting-o" aria-hidden="true"></i></a>
+        <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i> </a>
+        <a href=""><i class="fa fa-bookmark" aria-hidden="true"></i></a>
+    </div>
+
+    <div class="likes">
+        <a href="">345</a>
+    </div>
+
+    ## save and commit then push before continuing
+</div>
 
 {% endfor %} {% endblock content %}
