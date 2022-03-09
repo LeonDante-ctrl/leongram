@@ -1,5 +1,5 @@
 from datetime import timezone
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from leon.forms import PostForm
 from django.utils import timezone
 from .models import Post 
@@ -27,9 +27,12 @@ class PostCreateView(CreateView):
     
     
 class PostDetailView(DetailView):
+    template_name = 'pages/post_detail.html'
     queryset = Post.objects.all().filter(created_period__lte=timezone.now())    
-    
-    # getobject section
+    def get_object(self):
+        id = self.kwargs.get('id')
+        return get_object_or_404(Post, id=id)
+ 
     
     
     
