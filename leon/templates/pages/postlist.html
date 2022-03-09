@@ -13,11 +13,12 @@
     </div>
 
     <div class="post_image">
-        <img src="https://images.unsplash.com/photo-1620938289349-86988c5a81a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+        {% if post.image %}
+        <img src="{{ post.image.url }}" alt=""> {% endif %}
     </div>
     <div class="engage">
         <a href=""><i class="fa fa-heartbeat" aria-hidden="true"></i></a>
-        <a href=""><i class="fa fa-commenting-o" aria-hidden="true"></i></a>
+        <a href=""><i class="fa fa-comment" aria-hidden="true"></i></a>
         <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i> </a>
         <a href=""><i class="fa fa-bookmark" aria-hidden="true"></i></a>
     </div>
@@ -25,8 +26,16 @@
     <div class="likes">
         <a href="">345</a>
     </div>
+    <div class="caption">
+        <a href="">
+            <h3>{{post.author}}</h3>
+        </a>
+        <span> <p>{{post.caption}}</p></span>
+    </div>
+    <div class="time_posted">
+        {{post.created_period | timesince }} ago
+    </div>
 
-    ## save and commit then push before continuing
 </div>
 
 {% endfor %} {% endblock content %}
