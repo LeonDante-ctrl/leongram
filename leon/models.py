@@ -2,7 +2,9 @@ from time import timezone
 from django.db import models
 from django.utils import timezone
 
-# Create your models here.
+# image = Profile Photo
+# Bio = caption
+
 class Post(models.Model):
     author = models.ForeignKey('auth.User',on_delete=models.CASCADE)
     image = models.ImageField(blank=True, null =True)
