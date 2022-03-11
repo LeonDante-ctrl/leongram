@@ -191,16 +191,17 @@ header {
     display: flex;
     flex-direction: column;
     text-decoration: none;
+    /*   padding: 10px; */
     border: 1px solid Transparent;
     text-align: center;
     border-radius: 10px;
-    padding: 8px 8px;
-    border-top: 1px solid #efefef;
-    line-height: 1.5;
+    background-color: #FAFAFA;
+    width: 100%;
 }
 
 .menu li a {
     text-decoration: none;
+    color: #111;
 }
 
 * {

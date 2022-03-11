@@ -2,7 +2,7 @@
 <div class="card">
     <div class="card_header">
         <div class="profile_image">
-
+            <img src="{{ post.author.profile.profile_photo.url }}" alt="">
         </div>
         <div class="post_info">
             <div class="post_name"> {{post.author}}</div>
@@ -35,7 +35,7 @@
         <a href=""><i class="fa fa-bookmark" aria-hidden="true"></i></a>
     </div>
     <div class="likes">
-        <a href="">345</a>
+        <a href="#" class="likes_count">{{ post.likes.count }} likes</a>
     </div>
     <div class="caption">
         <a href="">
