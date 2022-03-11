@@ -9,7 +9,19 @@
             <div class="post_location">Panama</div>
         </div>
 
-        <div class="post_options"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+        <div class="post_options"> <button data-toggle="modal" data-target="#menu_modal"><a ><i class="fas fa-ellipsis-h"></i></a></button></div>
+    </div>
+    <div class="modal" id="menu_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <ul class='list-unstyled menu'>
+                    <li><a class="text-reset" href="{% url 'leon:post_update' post.id %}">Edit</a></li>
+                    <li><a class="text-reset" href="{% url 'leon:post_delete' post.id %}">Delete</a></li>
+                    <li><a class="text-reset" href="{% url 'leon:post_detail' post.id %}">Details</a></li>
+                    <li><a class="text-reset close" data-dismiss="modal" href="">Cancel</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <div class="post_image">
@@ -22,7 +34,6 @@
         <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i> </a>
         <a href=""><i class="fa fa-bookmark" aria-hidden="true"></i></a>
     </div>
-
     <div class="likes">
         <a href="">345</a>
     </div>
@@ -37,5 +48,4 @@
     </div>
 
 </div>
-
-{% endfor %} {% endblock content %}
+{% include "pages/menu_modal.html" %} {% endfor %} {% endblock content %}
