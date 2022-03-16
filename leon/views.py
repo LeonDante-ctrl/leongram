@@ -1,7 +1,11 @@
 from datetime import timezone
+from django.contrib.auth.models import User 
 from django.shortcuts import render, get_object_or_404
 from leon.forms import PostForm
 from django.utils import timezone
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import authentication, permissions
 from django.urls import reverse 
 from .models import Post 
 from django.views.generic import (
@@ -10,6 +14,7 @@ from django.views.generic import (
     DetailView,
     UpdateView,
     DeleteView,
+    RedirectView,
 )
 
 class PostListView(ListView):
@@ -21,7 +26,7 @@ class PostCreateView(CreateView):
     template_name = 'pages/post_create.html'
     form_class = PostForm
     queryset=Post.objects.all()
-    success_url = '/'
+    #success_url = '/'
     
     def form_valid(self, form):
         print(form.cleaned_data)
@@ -60,215 +65,6 @@ class PostDeleteView(DeleteView):
         return reverse('pages:post_list')  
       
  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     

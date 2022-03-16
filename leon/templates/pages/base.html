@@ -26,7 +26,7 @@
                 <a href="search"><i class="fas fa-search"></i></a>
             </div>
             <div class="contact_icons">
-                <a href="{% url 'leon:post_create.html' post.id %}" method = "post"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                <a href="{% url 'leon:post_create'%}"> {{ PostCreateView }}<i class="fa fa-plus" aria-hidden="true"></i></a>
                 <a href=""><i class="far fa-compass"></i></a>
                 {% if user.is_authenticated %}
                     <a href=""> <i class="far fa-heart"></i> </a>
@@ -51,6 +51,101 @@
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
-    <script src="{% static '/js/leon.js' %}"></script>
+  <script>
+    // function updateText(btn, newCount){
+    //     btn.text(newCount)
+    // }
+    $(".like-btn").click(function(e){
+    e.preventDefault()
+    var this_ = $(this)
+    var likeUrl = this_.attr("data-href")
+    var likeCount = parseInt(this_.attr("data-likes")) | 0
+    var addLike = likeCount + 1 
+    var removeLike = likeCount - 1 
+    $.ajax({
+        url: likeUrl,
+        method: "get",
+        data: {},
+        success: function(data){
+            console.log(data)
+            var NewLikes;
+            if (data.liked){
+                $(".likes_count").text(addLike + " likes") 
+                // add one like 
+            } else {
+                $(".likes_count").text(removeLike + " likes")
+
+
+                // remove one like 
+            }
+        }, error: function(error){
+            console.log(error)
+            console.log("error")
+        }
+    })
+})
+</script>
+<script>
+    $(".follow_button").click(function(e){
+        e.preventDefault() 
+        var thiss_ = $(this)
+        var follow_url = thiss_.attr("follow-href")
+        var follow_count = parseInt(thiss_.attr("data-follow")) | 0 
+        var addfollow = follow_count + 1 
+        var removefollow = follow_count - 1
+        if (follow_url){
+            $.ajax({
+                url: follow_url,
+                method: "get",
+                data: {},
+                success: function(data){
+                    console.log(data)
+                    if (data.follow){
+                        $(".number_of_followers").text(addfollow)
+                        $(".follow_button").text("Following")
+                    } else {
+                        $(".number_of_followers").text(removefollow)
+                        $(".follow_button").text("Follow")
+                    }
+
+                }, error: function(error){
+                console.log(error)
+                console.log("error")}
+
+            })
+        }
+
+    })
+    function updateText(btn, newCount){
+        btn.text(newCount)
+    }
+    $(".like-btn").click(function(e){
+    e.preventDefault()
+    var this_ = $(this)
+    var likeUrl = this_.attr("data-href")
+    var likeCount = parseInt(this_.attr("data-likes"))
+    .ajax({
+        url: likeUrl,
+        method: "get",
+        data: {},
+        success: function(data){
+            console.log(data)
+            var NewLikes;
+            if (data.liked){
+                var NewLikes = likeCount + 1
+                updateText(this_, NewLikes)
+                // add one like 
+            } else {
+                var NewLikes = likeCount - 1
+                updateText(this_, NewLikes)
+                // remove one like 
+            }
+        }, error: function(error){
+            console.log(error)
+            console.log("error")
+        }
+    })
+})
+</script>
 </body>
 </html>

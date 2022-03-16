@@ -19,6 +19,3 @@ function modal() {
         }
     });
 }
-
-
-$(document).ready(main());
