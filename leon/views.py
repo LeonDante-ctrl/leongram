@@ -26,7 +26,7 @@ class PostCreateView(CreateView):
     template_name = 'pages/post_create.html'
     form_class = PostForm
     queryset=Post.objects.all()
-    #success_url = '/'
+    success_url = '/'
     
     def form_valid(self, form):
         print(form.cleaned_data)
