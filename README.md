@@ -24,5 +24,5 @@ Post your projects, rate your own and other peoples projects!
 ## Author
 Leon Dante
 
-## Contact Informatio
+## Contact Information
 [Email](mailto:maxgamerdu@gmail.com)
